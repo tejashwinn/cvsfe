@@ -36,11 +36,19 @@ class CreateSignUp extends React.Component {
         alert('\n' + this.state.username + "\n" + bcrypt.hashSync(this.state.password, "$2a$10$8//8gRCFEoOw0wQVtiwLoe") + "\n" + this.state.firstname + "\n" + this.state.lastname);
         event.preventDefault();
     }
+    homePageSubmit(event) {
+        window.location.href = '/';
+        event.preventDefault();
+    }
 
     render() {
         return (
             <body>
                 <form onSubmit={this.handleSubmit}>
+                    <button style={{ float: 'left' }} onClick={this.homePageSubmit}>
+                        Home
+                    </button>
+                    <br/>
                     <input type="text" value={this.state.username} onChange={this.handleChangeUsername} placeholder="Username" />
                     <br />
                     <input type="text" value={this.state.firstname} onChange={this.handleChangeFirstName} placeholder="First Name" />

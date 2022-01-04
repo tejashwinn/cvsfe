@@ -22,11 +22,18 @@ class CreateLogIn extends React.Component {
         alert(bcrypt.hashSync(this.state.password, "$2a$10$8//8gRCFEoOw0wQVtiwLoe") + "\n" + this.state.emailid);
         event.preventDefault();
     }
-
+    homePageSubmit(event) {
+        window.location.href = '/';
+        event.preventDefault();
+    }
     render() {
         return (
             <body>
                 <form onSubmit={this.handleSubmit}>
+                    <button style={{float: 'left'}} onClick={this.homePageSubmit}>
+                        Home
+                    </button>
+                    <br />
                     <input typ e="text" value={this.state.emailid} onChange={this.handleChangeEmailID} placeholder="Email ID" />
                     <br />
                     <input type="text" value={this.state.password} onChange={this.handleChangePassword} placeholder="Password" />

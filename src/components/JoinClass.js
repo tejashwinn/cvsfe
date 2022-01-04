@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class JoinClass extends React.Component {
     constructor(props) {
 
@@ -14,6 +13,11 @@ class JoinClass extends React.Component {
         this.setState({ link: event.target.value });
     }
 
+    homePageSubmit(event) {
+        window.location.href = '/';
+        event.preventDefault();
+    }
+
     handleSubmit(event) {
         event.preventDefault();
     }
@@ -22,6 +26,9 @@ class JoinClass extends React.Component {
         return (
             <body>
                 <form onSubmit={this.handleSubmit}>
+                    <button style={{ float: 'left' }} onClick={this.homePageSubmit}>
+                        Home
+                    </button>
                     <input type="text" value={this.state.link} onChange={this.handleChangeLink} placeholder="Enter the link" />
                     <input type="submit" value="Submit" />
                     <br />
