@@ -16,13 +16,10 @@ class CreateSignUp extends React.Component {
     }
 
     handleChangeUsername(event) {
-
         this.setState({ username: event.target.value });
-
     }
     handleChangeFirstName(event) {
         this.setState({ firstname: event.target.value });;
-
     }
     handleChangeLastName(event) {
         this.setState({ lastname: event.target.value });;
@@ -42,22 +39,24 @@ class CreateSignUp extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className="SignUpForm">
-                <input type="text" value={this.state.username} onChange={this.handleChangeUsername} placeholder="Username" />
-                <br />
-                <input type="text" value={this.state.firstname} onChange={this.handleChangeFirstName} placeholder="First Name" />
-                <br />
-                <input type="text" value={this.state.lastname} onChange={this.handleChangeLastName} placeholder="Last Name" />
-                <br />
-                <input typ e="text" value={this.state.emailid} onChange={this.handleChangeEmailID} placeholder="Email ID" />
-                <br />
-                <input type="text" value={this.state.password} onChange={this.handleChangePassword} placeholder="Password" />
-                <br />
-                <input type="submit" value="Submit" />
-                <br />
-            </form>
+            <body>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" value={this.state.username} onChange={this.handleChangeUsername} placeholder="Username" />
+                    <br />
+                    <input type="text" value={this.state.firstname} onChange={this.handleChangeFirstName} placeholder="First Name" />
+                    <br />
+                    <input type="text" value={this.state.lastname} onChange={this.handleChangeLastName} placeholder="Last Name" />
+                    <br />
+                    <input typ e="text" value={this.state.emailid} onChange={this.handleChangeEmailID} placeholder="Email ID" />
+                    <br />
+                    <input type="text" value={this.state.password} onChange={this.handleChangePassword} placeholder="Password" />
+                    <br />
+                    <input type="submit" value="Submit" />
+                    <br />
+                </form>
+            </body>
         );
     }
 }
-export default CreateSignUp;
 
+export default CreateSignUp;
