@@ -15,7 +15,6 @@ class JoinClass extends React.Component {
     }
 
     handleSubmit(event) {
-        // this.state.password = bcrypt.hashSync(this.state.password, "$2a$10$8//8gRCFEoOw0wQVtiwLoe");
         event.preventDefault();
     }
 

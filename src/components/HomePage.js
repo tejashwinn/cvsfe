@@ -1,19 +1,37 @@
+import react from 'react';
 import React from 'react';
 
-const bcrypt = require('bcryptjs')
+import './HomePage.css';
 
-class CreateSignUp extends React.Component {
+class CreateHomePage extends React.Component {
 
-    handleSubmit(event) {
+    signUpSubmit(event) {
+        window.location.href = '/signup';
+
+        event.preventDefault();
+    }
+    logInSubmit(event) {
+        window.location.href = '/login';
+
         event.preventDefault();
     }
 
     render() {
         return (
-            <body>
-            </body>
+            <react.Fragment>
+                <body>
+                    <h1>College Virtual Space</h1>
+                    <button onClick={this.signUpSubmit}>
+                        Sign Up
+                    </button>
+                    <br />
+                    <button onClick={this.logInSubmit}>
+                        Log In
+                    </button>
+                </body>
+            </react.Fragment>
         );
     }
 }
 
-export default CreateSignUp;
+export default CreateHomePage;
