@@ -34,6 +34,7 @@ class CreateLogIn extends React.Component {
                         Home
                     </button>
                     <br />
+                    <br />
                     <input typ e="text" value={this.state.emailid} onChange={this.handleChangeEmailID} placeholder="Email ID" />
                     <br />
                     <input type="text" value={this.state.password} onChange={this.handleChangePassword} placeholder="Password" />

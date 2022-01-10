@@ -1,18 +1,17 @@
 import react from 'react';
 import React from 'react';
 
-import './HomePage.css';
+import './styles/HomePage.css';
 
 class CreateHomePage extends React.Component {
 
     signUpSubmit(event) {
         window.location.href = '/signup';
-
+            
         event.preventDefault();
     }
     logInSubmit(event) {
         window.location.href = '/login';
-
         event.preventDefault();
     }
 

@@ -33,9 +33,21 @@ class CreateSignUp extends React.Component {
 
     handleSubmit(event) {
         // this.state.password = bcrypt.hashSync(this.state.password, "$2a$10$8//8gRCFEoOw0wQVtiwLoe");
-        alert('\n' + this.state.username + "\n" + bcrypt.hashSync(this.state.password, "$2a$10$8//8gRCFEoOw0wQVtiwLoe") + "\n" + this.state.firstname + "\n" + this.state.lastname);
+        const temp = { UserName: this.state.username, FirstName: this.state.firstname, LastName: this.state.lastname, EmailId: this.state.emailid, Password: bcrypt.hashSync(this.state.password, "$2a$10$8//8gRCFEoOw0wQVtiwLoe") }
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', 'X-CSRFToken': "csrftoken" ,  "csrfmiddlewaretoken": "{{ csrf_token }}"
+            },  
+            body: JSON.stringify(temp)
+
+        };
+        fetch('http://127.0.0.1:8000/cred/', requestOptions)
+            .then(response => response.json())
+            .then(data => this.setState({ username: '', firstname: "", lastname: "", emailid: "", password: "" }))
         event.preventDefault();
     }
+
     homePageSubmit(event) {
         window.location.href = '/';
         event.preventDefault();
@@ -48,7 +60,8 @@ class CreateSignUp extends React.Component {
                     <button style={{ float: 'left' }} onClick={this.homePageSubmit}>
                         Home
                     </button>
-                    <br/>
+                    <br />
+                    <br />
                     <input type="text" value={this.state.username} onChange={this.handleChangeUsername} placeholder="Username" />
                     <br />
                     <input type="text" value={this.state.firstname} onChange={this.handleChangeFirstName} placeholder="First Name" />
